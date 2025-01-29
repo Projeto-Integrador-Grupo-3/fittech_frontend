@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 // import { AuthContext } from "../../../contexts/AuthContext";
 import Treino from "../../../models/Treino";
 import CardTreinos from "../cardtreinos/CardTreinos";
-import { buscar } from "../../../services/Service";
+import { buscar } from "../../../service/Service";
 
 function ListarTreinos() {
 

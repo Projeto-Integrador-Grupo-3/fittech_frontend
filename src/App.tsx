@@ -1,33 +1,35 @@
-import { useState } from 'react';
 import './App.css';
 
-import CardTreino from './components/treinos/cardtreinos/CardTreinos';
 
-import Home from './pages/home/Home';
+import { AuthProvider } from './context/AuthContext';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/login/Login';
+
 import Navbar from './pages/navbar/Navbar';
 import Footer from './pages/footer/Footer';
+import Cadastro from './pages/cadastro/Cadastro';
 import Sobre from './pages/sobre/Sobre';
-import ListaTreinos from './components/treinos/listartreinos/ListarTreinos';
-import ListarTreinos from './components/treinos/listartreinos/ListarTreinos';
-import FormTreinos from './components/treinos/formtreinos/FormTreinos';
-import Carrossel from './components/carrosel/Carrossel';
+import Home from './pages/home/Home';
+
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <Navbar />
-      {/* <Home /> */}
-      {/* <FormTreinos /> */}
-      <Carrossel />
-      {/* <CardTreino />
-      <ListarTreinos /> */}
-      {/* <Sobre /> */}
-      <Footer />
-      {/* <DeletarTreino /> */}
+    <AuthProvider>
+        <BrowserRouter>
+         <Navbar/>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/cadastrar" element={<Cadastro />} />
+              <Route path="/sobre" element={<Sobre />} />
+            </Routes>
+         <Footer/>
+        </BrowserRouter>
+      </AuthProvider>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,7 +1,7 @@
 import Exercicio from "./Exercicio";
 
 export default interface Usuario {
-    id: number;
+    id: any;
     nome: string;
     cpf: string;
     usuario: string;
@@ -9,6 +9,6 @@ export default interface Usuario {
     tipo: string;
     peso: number;
     altura: number;
-    imc: number;
+    imc?: number;
     exercicio?: Exercicio | null;
 }
