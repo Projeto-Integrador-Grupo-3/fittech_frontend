@@ -10,6 +10,7 @@ import Footer from './pages/footer/Footer';
 import Cadastro from './pages/cadastro/Cadastro';
 import Sobre from './pages/sobre/Sobre';
 import Home from './pages/home/Home';
+import ListarTreinos from './components/treinos/listartreinos/ListarTreinos';
 
 
 function App() {
@@ -18,13 +19,16 @@ function App() {
     <AuthProvider>
         <BrowserRouter>
          <Navbar/>
+         
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
+              <Route path="/treinos" element={<ListarTreinos />} />
               <Route path="/login" element={<Login />} />
               <Route path="/cadastrar" element={<Cadastro />} />
               <Route path="/sobre" element={<Sobre />} />
             </Routes>
+            
          <Footer/>
         </BrowserRouter>
       </AuthProvider>
