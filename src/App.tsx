@@ -5,8 +5,8 @@ import { AuthProvider } from './context/AuthContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './pages/login/Login';
 
-import Navbar from './pages/navbar/Navbar';
-import Footer from './pages/footer/Footer';
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
 import Cadastro from './pages/cadastro/Cadastro';
 import Sobre from './pages/sobre/Sobre';
 import Home from './pages/home/Home';

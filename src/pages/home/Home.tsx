@@ -35,7 +35,7 @@ const Carrossel = () => {
           className="w-full h-auto object-cover shadow-lg transition duration-500 ease-in-out transform"
         />
         <div className="absolute top-1 z-10 flex flex-col items-center justify-center h-full text-center text-white p-6">
-          <h1 className="text-5xl font-bold mb-4">Bem-vindo à FitTech</h1>
+          <h1 className="text-5xl font-bold mb-4">Bem-vindo à FIT TECH</h1>
           <p className="text-lg font-light mb-6 max-w-lg">
             Transforme seu corpo, sua mente e alcance seus objetivos com nossa estrutura completa e ambiente motivador.
           </p>
