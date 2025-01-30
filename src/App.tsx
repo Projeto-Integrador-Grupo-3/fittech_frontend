@@ -1,33 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+
+
+import { AuthProvider } from './context/AuthContext';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/login/Login';
+
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+import Cadastro from './pages/cadastro/Cadastro';
+import Sobre from './pages/sobre/Sobre';
+import Home from './pages/home/Home';
+import ListarTreinos from './components/treinos/listartreinos/ListarTreinos';
+import ListarExercicios from './components/exercicios/listarexercicios/ListarExercicios';
+import FormTreinos from './components/treinos/formtreinos/FormTreinos';
+import DeletarTreino from './components/treinos/deletartreinos/DeletarTreinos';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <AuthProvider>
+        <BrowserRouter>
+         <Navbar/>
+         
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/treinos" element={<ListarTreinos />} />
+              <Route path="/cadastrartreino" element={<FormTreinos/>} />
+              <Route path="/editartreino/:id" element={<FormTreinos/>} />
+              <Route path="/deletartreino/:id" element={<DeletarTreino/>} />
+              <Route path="/exercicios" element={<ListarExercicios/>} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/cadastrar" element={<Cadastro />} />
+              <Route path="/sobre" element={<Sobre />} />
+            </Routes>
+            
+         <Footer/>
+        </BrowserRouter>
+      </AuthProvider>
     </>
   )
 }
