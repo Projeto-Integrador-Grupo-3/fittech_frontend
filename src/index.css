@@ -4,13 +4,27 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Gelasio';
-  src: url('/assets/fonts/Gelasio/Gelasio-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal;
+.instrument-sans-unique {
+  font-family: "Instrument Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+
+.anton-regular {
+  font-family: "Anton", serif;
+  font-weight: 400;
   font-style: normal;
 }
 
+h1,h2,h3,span {
+  font-family: 'Anton', sans-serif;
+  font-weight: normal;
+}
+
 body {
-  font-family: 'Impact', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }

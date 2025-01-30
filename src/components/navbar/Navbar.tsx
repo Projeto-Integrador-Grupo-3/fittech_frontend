@@ -20,7 +20,7 @@ function Navbar() {
 
   if (usuario.token !== "") {
     component = (
-      <nav className="fixed top-0 left-0 w-full bg-stone-950 bg-opacity-50 text-white shadow-lg z-50">
+      <nav className="fixed top-0 left-0 w-full bg-stone-950 bg-opacity-50 text-[#F5F5F5F] shadow-lg z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             
@@ -34,23 +34,23 @@ function Navbar() {
 
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link to='/treinos' className="text-gray-300 hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Treinos</Link>
-                <Link to='/exercicios' className="text-gray-300 hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Exercicios</Link>
+                <Link to='/treinos' className="text-[#F5F5F5F] hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Treinos</Link>
+                <Link to='/exercicios' className="text-[#F5F5F5F] hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Exercicios</Link>
                 <button
                   onClick={() => setIsModalOpen(true)} // Abre o modal
-                  className="text-gray-300 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-[#F5F5F5F] hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Calcule seu IMC
                 </button>
-                <Link to='/sobre' className="text-gray-300 hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Sobre</Link>
-                {/* <Link to='#footer' className="text-gray-300 hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Contato</Link> */}
-                <Link to='/home' onClick={logout} className='text-gray-300 hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium'>Sair</Link>
+                <Link to='/sobre' className="text-[#F5F5F5F] hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Sobre</Link>
+                {/* <Link to='#footer' className="text-[#F5F5F5F] hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Contato</Link> */}
+                <Link to='/home' onClick={logout} className='text-[#F5F5F5F] hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium'>Sair</Link>
                 
               </div>
             </div>
             <div className="md:hidden">
               <button
-                className="text-gray-300 hover:text-[#ff0000] focus:outline-none focus:text-[#ff0000]"
+                className="text-[#F5F5F5F] hover:text-[#ff0000] focus:outline-none focus:text-[#ff0000]"
                 type="button"
               >
                 <svg
@@ -76,7 +76,7 @@ function Navbar() {
     );
   } else {
     component = (
-      <nav className="fixed top-0 left-0 w-full bg-stone-950 bg-opacity-50 text-white shadow-lg z-50">
+      <nav className="fixed top-0 left-0 w-full bg-stone-950 bg-opacity-50 text-[#F5F5F5F] shadow-lg z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
 
@@ -89,15 +89,15 @@ function Navbar() {
 
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link to='/sobre' className="text-gray-300 hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Sobre</Link>
-                {/* <Link to='#footer' className="text-gray-300 hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Contato</Link> */}
-                <Link to='/login' className="text-gray-300 hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Acesse ou Cadastre-se</Link>
+                <Link to='/sobre' className="text-[#F5F5F5F] hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Sobre</Link>
+                {/* <Link to='#footer' className="text-[#F5F5F5F] hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Contato</Link> */}
+                <Link to='/login' className="text-[#F5F5F5F] hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-medium">Acesse ou Cadastre-se</Link>
 
               </div>
             </div>
             <div className="md:hidden">
               <button
-                className="text-gray-300 hover:text-[#ff0000] focus:outline-none focus:text-[#ff0000]"
+                className="text-[#F5F5F5F] hover:text-[#ff0000] focus:outline-none focus:text-[#ff0000]"
                 type="button"
               >
                 <svg
