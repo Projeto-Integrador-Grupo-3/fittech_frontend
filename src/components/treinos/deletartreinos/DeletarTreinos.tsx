@@ -1,8 +1,9 @@
 import { useState, useContext, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-// import { AuthContext } from "../../../contexts/AuthContext"
+import { AuthContext } from "../../../context/AuthContext"
 import { buscar, deletar } from "../../../service/Service"
 import Treino from "../../../models/Treino"
+
 
 
 
@@ -20,31 +21,31 @@ function DeletarTreino() {
     const { id } = useParams<{ id: string }>()
 
 
-    // const { usuario, handleLogout } = useContext(AuthContext)
-    // const token = usuario.token
+     const { usuario, handleLogout } = useContext(AuthContext);
+        const token = usuario.token;
 
 
     async function buscarPorId(id: string) {
         try {
             await buscar(`/treino/${id}`, setTreino, {
                 headers: {
-                    // 'Authorization': token
+                    'Authorization': token
                 }
             })
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                // handleLogout()
+                handleLogout()
             }
         }
     }
 
 
-    // useEffect(() => {
-    //     if (token === '') {
-    //         alert('Você precisa estar logado!')
-    //         navigate('/')
-    //     }
-    // }, [token])
+    useEffect(() => {
+        if (token === '') {
+            alert('Você precisa estar logado!')
+            navigate('/')
+        }
+    }, [token])
 
 
     useEffect(() => {
@@ -61,18 +62,18 @@ function DeletarTreino() {
         try {
             await deletar(`/treino/${id}`, {
                 headers: {
-                    // 'Authorization': token
+                    'Authorization': token
                 }
             })
-            alert('Treino apagada com sucesso')
+            alert('Treino apagado com sucesso')
 
 
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                // handleLogout()
+                handleLogout()
             } else {
                 alert('Erro ao deletar treino')
-               
+
             }
         }
 
@@ -83,10 +84,10 @@ function DeletarTreino() {
 
 
     function retornar() {
-        navigate('/treino')
+        navigate('/treinos')
     }
 
-        return (
+    return (
         <div className="flex items-center justify-center fixed inset-0 bg-gray-900 bg-opacity-50 z-50">
             <div className="w-full max-w-md bg-gradient-to-r from-black to-gray-800 rounded-lg shadow-lg p-6">
                 <h1 className="text-2xl text-center font-semibold text-white mb-4">Deletar Treino</h1>
@@ -96,26 +97,26 @@ function DeletarTreino() {
                 </p>
 
                 <div className="border-l-4 border-yellow-500 pl-4 py-3 mb-6 rounded-lg bg-gray-700">
-                    <p className="text-base font-semibold text-white mb-1">Título do Treino</p>
-                    <p className="text-gray-300 text-sm">Descrição do treino...</p>
+                    <p className="text-base font-semibold text-white mb-1">{treino.treino}</p>
+                    <p className="text-gray-300 text-sm">{treino.descricao}</p>
                 </div>
 
                 <div className="flex justify-between space-x-3">
                     <button
                         className="py-2 px-5 text-sm font-semibold text-gray-600 bg-gray-300 hover:bg-gray-400 rounded-lg transition duration-300 w-full"
-                    onClick={retornar}>
+                        onClick={retornar}>
                         Não
                     </button>
                     <button
                         className="py-2 px-5 text-sm font-semibold text-white bg-red-500 hover:bg-red-600 rounded-lg transition duration-300 w-full"
-                    onClick={deletarTreino}>
+                        onClick={deletarTreino}>
                         Sim
                     </button>
                 </div>
             </div>
         </div>
     );
-        
+
 }
 
 export default DeletarTreino;

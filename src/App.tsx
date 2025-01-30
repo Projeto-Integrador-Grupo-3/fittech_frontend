@@ -13,6 +13,7 @@ import Home from './pages/home/Home';
 import ListarTreinos from './components/treinos/listartreinos/ListarTreinos';
 import ListarExercicios from './components/exercicios/listarexercicios/ListarExercicios';
 import FormTreinos from './components/treinos/formtreinos/FormTreinos';
+import DeletarTreino from './components/treinos/deletartreinos/DeletarTreinos';
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/treinos" element={<ListarTreinos />} />
               <Route path="/cadastrartreino" element={<FormTreinos/>} />
+              <Route path="/editartreino/:id" element={<FormTreinos/>} />
+              <Route path="/deletartreino/:id" element={<DeletarTreino/>} />
               <Route path="/exercicios" element={<ListarExercicios/>} />
               <Route path="/login" element={<Login />} />
               <Route path="/cadastrar" element={<Cadastro />} />

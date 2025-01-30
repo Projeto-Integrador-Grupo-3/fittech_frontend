@@ -25,7 +25,7 @@ function CardTreino({ treino }: CardTreinoProps) {
                  </Link> 
 
                 {/* Deletar Treino */}
-                 <Link to={`/treino/${treino.id}`}> 
+                 <Link to={`/deletartreino/${treino.id}`}> 
                     <button className="bg-red-800 hover:bg-red-900 text-white font-semibold py-1 px-3 rounded-lg transition-colors shadow-md text-sm">Deletar</button>
                  </Link> 
             </div>
