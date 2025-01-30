@@ -15,16 +15,16 @@ function Footer() {
 
         <div className="flex flex-col h-full">
           <h3 className="text-lg font-semibold text-[#ff0000] mb-4">Contato</h3>
-          <p className="text-gray-300">Av Paulista, 123</p>
-          <p className="text-gray-300">São Paulo, SP</p>
-          <p className="text-gray-300">fit-tech@email.com</p>
-          <p className="text-gray-300 mb-4">(11) 4002-8922</p>
+          <p className="text-[#F5F5F5F]">Av Paulista, 123</p>
+          <p className="text-[#F5F5F5F]">São Paulo, SP</p>
+          <p className="text-[#F5F5F5F]">fit-tech@email.com</p>
+          <p className="text-[#F5F5F5F] mb-4">(11) 4002-8922</p>
         </div>
 
         <div className="flex flex-col h-full">
           <h3 className="text-lg font-semibold text-[#ff0000] mb-4">Atendimento</h3>
-          <p className="text-gray-300">Segunda a Sexta - 5h às 23h</p>
-          <p className="text-gray-300">Sábado - 7h às 13h</p>
+          <p className="text-[#F5F5F5F]">Segunda a Sexta - 5h às 23h</p>
+          <p className="text-[#F5F5F5F]">Sábado - 7h às 13h</p>
         </div>
 
         <div className="flex flex-col h-full">
@@ -33,7 +33,7 @@ function Footer() {
             href="https://github.com/Projeto-Integrador-Grupo-3/academia-projetointegrador" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex items-center gap-2 text-gray-300 hover:text-[#ff0000]"
+            className="flex items-center gap-2 text-[#F5F5F5F] hover:text-[#ff0000]"
           >
             <GithubLogo size={24} weight="bold" />
             GitHub
