@@ -4,8 +4,8 @@ import './App.css';
 import CardTreino from './components/treinos/cardtreinos/CardTreinos';
 
 import Home from './pages/home/Home';
-import Navbar from './pages/navbar/Navbar';
-import Footer from './pages/footer/Footer';
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
 import Sobre from './pages/sobre/Sobre';
 import ListaTreinos from './components/treinos/listartreinos/ListarTreinos';
 import ListarTreinos from './components/treinos/listartreinos/ListarTreinos';
@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <Home /> */}
+      <Home />
       { <FormExercicios /> }
       {/*<Carrossel />}
       {/* <CardTreino />
