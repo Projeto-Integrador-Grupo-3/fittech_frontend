@@ -8,27 +8,25 @@ import Treino from "../../../models/Treino";
 function CardTreino({ treino }: CardTreinoProps) {
 
      return (
-        <div className='border border-gray-300 rounded-2xl shadow-lg overflow-hidden bg-slate-950 max-w-sm w-full'>
-            <header className='py-3 px-6 bg-gradient-to-r from-red-800 to-slate-950 text-white font-bold text-2xl text-center'>
-                { treino.treino}
+        <div className='flex grid-cols-3 items-center justify-between border border-gray-700 rounded-lg shadow-md p-2 bg-black w-4/6'>
+            <header className='font-semibold text-lg text-white'>
+                { treino.treino || 'treino não disponivel'} 
             </header>
             
             {/* Descrição do treino */}
-            <p className='p-6 text-lg text-white bg-slate-950'>
+            <p className='text-gray-400 text-sm'>
                 { treino.descricao} 
             </p>
 
             {/* Botões de ação */}
-            <div className="flex justify-between p-4">
-                 <Link to={`/editartreino/${treino.id}`}  
-                    className='w-full mr-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 rounded-lg text-center transition-colors'> 
-                    <button className="w-full mr-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 rounded-lg text-center transition-colors">Editar</button>
+            <div className='flex space-x-2'>
+                 <Link to={`/editartreino/${treino.id}`}> 
+                    <button className="bg-red-600 hover:bg-red-700 text-white font-semibold py-1 px-3 rounded-lg transition-colors shadow-md text-sm">Editar</button>
                  </Link> 
 
                 {/* Deletar Treino */}
-                 <Link to={`/treino/${treino.id}`} 
-                    className='w-full ml-2 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded-lg text-center transition-colors'> 
-                    <button className="w-full ml-2 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded-lg text-center transition-colors">Deletar</button>
+                 <Link to={`/treino/${treino.id}`}> 
+                    <button className="bg-red-800 hover:bg-red-900 text-white font-semibold py-1 px-3 rounded-lg transition-colors shadow-md text-sm">Deletar</button>
                  </Link> 
             </div>
         </div>

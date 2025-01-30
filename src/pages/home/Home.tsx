@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Marketing from "../../components/marketing/Marketing";
 
 const Carrossel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,6 +28,7 @@ const Carrossel = () => {
   };
 
   return (
+    <>
     <div className="relative w-full mx-auto overflow-hidden">
       <div className="relative">
         <img
@@ -61,6 +63,9 @@ const Carrossel = () => {
       </button>
       
     </div>
+
+<Marketing />
+</>
   );
 };
 

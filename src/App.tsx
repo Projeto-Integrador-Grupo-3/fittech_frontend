@@ -11,6 +11,8 @@ import Cadastro from './pages/cadastro/Cadastro';
 import Sobre from './pages/sobre/Sobre';
 import Home from './pages/home/Home';
 import ListarTreinos from './components/treinos/listartreinos/ListarTreinos';
+import ListarExercicios from './components/exercicios/listarexercicios/ListarExercicios';
+import FormTreinos from './components/treinos/formtreinos/FormTreinos';
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/treinos" element={<ListarTreinos />} />
+              <Route path="/cadastrartreino" element={<FormTreinos/>} />
+              <Route path="/exercicios" element={<ListarExercicios/>} />
               <Route path="/login" element={<Login />} />
               <Route path="/cadastrar" element={<Cadastro />} />
               <Route path="/sobre" element={<Sobre />} />

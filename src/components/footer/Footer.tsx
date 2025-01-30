@@ -2,7 +2,7 @@ import { GithubLogo } from '@phosphor-icons/react';
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-10 w-auto">
+    <footer id='footer' className="bg-black text-white py-10 w-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 items-stretch">
         <div className="flex flex-col h-full">
           <a href="#home" className="text-3xl font-bold text-[#ff0000]">

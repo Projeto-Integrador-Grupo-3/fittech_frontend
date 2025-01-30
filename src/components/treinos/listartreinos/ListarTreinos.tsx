@@ -1,69 +1,100 @@
-import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../context/AuthContext";
-import Treino from "../../../models/Treino";
-import CardTreinos from "../cardtreinos/CardTreinos";
-import { buscar } from "../../../service/Service";
 import { ThreeDots } from "react-loader-spinner";
-
+import CardTreinos from "../cardtreinos/CardTreinos";
+import { useContext, useEffect, useState } from "react";
+import Treino from "../../../models/Treino";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContext";
+import { buscar, cadastrar } from "../../../service/Service";
 
 
 function ListarTreinos() {
 
-     const navigate = useNavigate();
 
-     const [treinos, setTreinos] = useState<Treino[]>([])
+    const navigate = useNavigate();
 
-     const { usuario, handleLogout } = useContext(AuthContext)
-     const token = usuario.token
 
-     async function buscarTreinos() {
+    const [treinos, setTreinos] = useState<Treino[]>([])
+
+
+    const { usuario, handleLogout } = useContext(AuthContext)
+    const token = usuario.token
+
+
+    async function buscarTreinos() {
         try {
-             await buscar('/treino', setTreinos, {
-                 headers: { Authorization: token }
-             })
-         } catch (error: any) {
-             if (error.toString().includes('403')) {
-                 handleLogout()
-             }
-         }
-     }
+            await buscar('/treino', setTreinos, {
+                headers: { Authorization: token }
+            })
+        } catch (error: any) {
+            if (error.toString().includes('403')) {
+                handleLogout()
+            }
+        }
+    }
 
-     useEffect(() => {
-         if (token === '') {
-             alert('Você precisa estar logado')
-             navigate('/')
-         }
-     }, [token])
+    async function cadastrarTreinos() {
+        try {
+            await cadastrar('/treino', treinos, setTreinos, {
+                headers: { Authorization: token }
+            })
+        } catch (error: any) {
+            if (error.toString().includes('403')) {
+                handleLogout()
+            }
+        }
+    }
 
-     useEffect(() => {
-         buscarTreinos()    
-     }, [treinos.length])
-    
+
+    useEffect(() => {
+        if (token === '') {
+            alert('Você precisa estar logado')
+            navigate('/')
+        }
+    }, [token])
+
+
+    useEffect(() => {
+        buscarTreinos()
+    }, [treinos.length])
+
     return (
         <>
-         {treinos.length === 0 && (
-            <ThreeDots
-            height="200"
-            width="200"
-            radius="9"
-            color="red"
-            ariaLabel="three-dots-loading"
-            wrapperStyle={{}}
-            wrapperClass="three-dots-wrapper mx-auto"
-          />
-        )} 
-            <div className="flex justify-center w-full py-40 bg-[#1c1c1c]">
-                <div className="container flex flex-col">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {treinos.map((treino) => (
-                            <CardTreinos key={treino.id} treino={treino} />
-                        ))} 
-                    </div>
+            {treinos.length === 0 && (
+                <ThreeDots
+                    height="200"
+                    width="200"
+                    radius="9"
+                    color="red"
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="three-dots-wrapper mx-auto"
+                />
+            )}
+
+
+            <div className="flex justify-around items-center w-5/6 mx-auto my-4 pt-10">
+                <h1 className="text-2xl font-bold">Lista de Treinos</h1>
+                <button
+                    onClick={cadastrarTreinos}
+                    className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-colors"
+                >
+                  <Link to='/cadastrartreino'>Cadastrar Treino</Link>  
+                </button>
+            </div>
+
+            <div className="flex justify-center items-center w-full my-4">
+                <div className="container flex flex-col gap-4 items-center">
+                    {/* Exibe os cards de treino */}
+                    {treinos.map((treino) => (
+                        <CardTreinos key={treino.id} treino={treino} />
+                    ))}
                 </div>
             </div>
         </>
     )
 }
 
+
 export default ListarTreinos;
+
+

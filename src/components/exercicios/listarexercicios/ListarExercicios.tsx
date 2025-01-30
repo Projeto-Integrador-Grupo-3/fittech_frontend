@@ -1,20 +1,22 @@
 // Interface para representar os dados de cada treino
-interface Treino {
+interface Exercicios {
   id: number;
   nome: string;
-  descricao: string;
+  grupomuscular: string;
+  repeticoes: number;
+  series: number;
 }
 
 
-function ListarTreinos() {
+function ListarExercicios() {
   // Dados simulados de treinos cadastrados (você pode substituir por dados reais, de uma API ou banco de dados)
-  const treinos: Treino[] = [
-    { id: 1, nome: 'Supino Reto', descricao: 'Exercício para peito e tríceps.' },
-    { id: 2, nome: 'Agachamento', descricao: 'Exercício para pernas e glúteos.' },
-    { id: 3, nome: 'Puxada na frente', descricao: 'Exercício para costas e bíceps.' },
-    { id: 4, nome: 'Leg Press', descricao: 'Exercício para quadríceps e glúteos.' },
-    { id: 5, nome: 'Rosca Direta', descricao: 'Exercício para bíceps.' },
-    { id: 6, nome: 'Stiff', descricao: 'Exercício para posterior de coxa e glúteos.' },
+  const exercicios: Exercicios[] = [
+    { id: 1, nome: 'Supino Reto', grupomuscular: ' peitoral', repeticoes: 12, series: 4 },
+    { id: 2, nome: 'Agachamento', grupomuscular: ' quadriceps', repeticoes: 12, series: 4 },
+    { id: 3, nome: 'Puxada na frente', grupomuscular: ' dorsal', repeticoes: 12, series: 4 },
+    { id: 4, nome: 'Leg Press', grupomuscular: ' glúteos', repeticoes: 12, series: 4  },
+    { id: 5, nome: 'Rosca Direta', grupomuscular: ' bíceps', repeticoes: 12, series: 4 },
+    { id: 6, nome: 'Stiff', grupomuscular: ' coxas e glúteos', repeticoes: 12, series: 4  },
   ];
 
 
@@ -32,18 +34,20 @@ function ListarTreinos() {
 
       {/* Conteúdo */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full text-white p-6">
-        <h1 className="text-4xl font-bold text-center text-red-500 mb-8">Exercícios Cadastrados</h1>
+        <h1 className="text-4xl font-bold text-center text-red-500 mb-8">Exercícios</h1>
 
 
         <div className="container flex flex-col">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {treinos.map((treino) => (
+            {exercicios.map((exercicios) => (
               <div
-                key={treino.id}
+                key={exercicios.id}
                 className="bg-black text-white p-6 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-red-500"
               >
-                <h2 className="text-2xl font-bold mb-4">{treino.nome}</h2>
-                <p className="text-lg font-light">{treino.descricao}</p>
+                <h2 className="text-2xl font-bold mb-4">{exercicios.nome}</h2>
+                <p className="text-lg font-light">Musculo Trabalado:{exercicios.grupomuscular}</p>
+                <p className="text-lg font-light">{exercicios.series} Series</p>
+                <p className="text-lg font-light">{exercicios.repeticoes} Repetições</p>
               </div>
             ))}
           </div>
@@ -54,4 +58,4 @@ function ListarTreinos() {
 }
 
 
-export default ListarTreinos;
+export default ListarExercicios;
