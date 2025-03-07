@@ -63,7 +63,7 @@ function DeletarExercicio() {
                     'Authorization': token
                 }
             })
-            alert('Exercicio apagada com sucesso')
+            alert('Exercicio deletado com sucesso')
 
 
 
@@ -88,7 +88,7 @@ function DeletarExercicio() {
 
 
     function retornar() {
-        navigate('/exercicio')
+        navigate('/exercicios')
     }
 
 
@@ -104,8 +104,10 @@ function DeletarExercicio() {
 
 
                 <div className="border-l-4 border-yellow-500 pl-4 py-3 mb-6 rounded-lg bg-gray-700">
-                    <p className="text-base font-semibold text-white mb-1">Título do Exercicio</p>
-                    <p className="text-gray-300 text-sm">Descrição do exercicio...</p>
+                    <p className="text-base font-semibold text-white mb-1">{exercicio.nome}</p>
+                    <p className="text-gray-300 text-sm">Musculos Trabalhados: {exercicio.grupoMuscular}</p>
+                    <p className="text-gray-300 text-sm">Series: {exercicio.series}</p>
+                    <p className="text-gray-300 text-sm">Repetições: {exercicio.repeticoes}</p>
                 </div>
 
 

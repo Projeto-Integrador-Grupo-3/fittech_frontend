@@ -1,5 +1,5 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import Exercicio from "../../../models/Exercicio";
 import { atualizar, buscar, cadastrar } from "../../../service/Service";
@@ -9,7 +9,14 @@ function FormExercicios() {
     const navigate = useNavigate();
 
 
-    const [exercicio, setExercicio] = useState<Exercicio>({} as Exercicio)
+    const [exercicio, setExercicio] = useState<Exercicio>({
+        id: undefined,
+        nome: '',
+        grupoMuscular: '',
+        series: 0,
+        repeticoes: 0
+
+    })
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
 
@@ -57,7 +64,7 @@ function FormExercicios() {
 
 
     function retornar() {
-        navigate("/exercicio")
+        navigate("/exercicios")
     }
 
 
@@ -104,49 +111,88 @@ function FormExercicios() {
     }
 
     return (
-      <div className="relative w-full h-screen bg-cover bg-center" style={{ backgroundImage: `url('https://img.freepik.com/fotos-premium/uma-academia-com-luzes-vermelhas-e-uma-parede-preta-que-diz-ginasio-nela_876956-1215.jpg')` }}>
-        {/* Overlay to dim the image */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
- 
-        {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center mx-auto p-10 rounded-lg shadow-lg bg-black bg-opacity-60 text-white">
-          <h1 className="text-4xl text-center my-8 font-bold text-red-500">
-            Editar Exercicio
-          </h1>
- 
-          <form className="w-full md:w-1/2 flex flex-col gap-6" >
-            <div className="flex flex-col gap-4">
-              <div>
-                <label htmlFor="exercicio" className="text-lg font-semibold text-gray-300" >Exercicio</label>
-                <input
-                  type="text"
-                  placeholder="Descreva aqui seu exercicio"
-                  name="exercicio"
-                  className="w-full border-2 border-red-500 bg-gray-800 text-white rounded p-3 placeholder-gray-400 focus:ring-2 focus:ring-red-600 focus:outline-none"
-                />
-              </div>
- 
-              <div>
-                <label htmlFor="descricao" className="text-lg font-semibold text-gray-300" >Descrição do Exercicio</label>
-                <input
-                  type="text"
-                  placeholder="Descreva aqui a descrição do exercicio"
-                  name="descricao"
-                  className="w-full border-2 border-red-500 bg-gray-800 text-white rounded p-3 placeholder-gray-400 focus:ring-2 focus:ring-red-600 focus:outline-none"
-                 
-                />
-              </div>
+        <div className="relative w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://img.freepik.com/fotos-premium/uma-academia-com-luzes-vermelhas-e-uma-parede-preta-que-diz-ginasio-nela_876956-1215.jpg')` }}>
+            {/* Overlay to dim the image */}
+
+
+            {/* Content */}
+            <div className="relative flex flex-col items-center justify-center pt-10">
+                <div className="bg-gray-100 w-96 rounded-lg shadow-lg p-6 my-8">
+
+
+                    <h1 className="text-4xl text-center my-8 font-bold text-red-500">
+                        Adicionar Exercicio
+                    </h1>
+
+                    <form className="w-full h-full mb-10  flex flex-col gap-6" onSubmit={gerarNovoExercicio}>
+
+                        <div>
+                            <label htmlFor="exercicio" className="text-lg font-semibold " >Exercício</label>
+                            <input
+                                type="text"
+                                placeholder="Exercicio"
+                                name="nome"
+                                className="w-full border-2 border-red-500  rounded p-3  focus:ring-2 focus:ring-red-600 focus:outline-none"
+                                value={exercicio.nome}
+                                onChange={atualizarEstado}
+                            />
+                        </div>
+
+                        <div>
+                            <label htmlFor="musculo" className="text-lg font-semibold" >Músculos Trabalhados</label>
+                            <input
+                                type="text"
+                                placeholder="Musculos Trabalhados"
+                                name="grupoMuscular"
+                                className="w-full border-2 border-red-500   rounded p-3  focus:ring-2 focus:ring-red-600 focus:outline-none"
+                                value={exercicio.grupoMuscular}
+                                onChange={atualizarEstado}
+                            />
+                        </div>
+
+                        <div className="flex ">
+                            <div className="flex flex-col  ">
+                                <label htmlFor="series" className="text-lg font-semibold " >Series:</label>
+                                <input
+                                    type="number"
+                                    placeholder="Quantidade de series"
+                                    name="series"
+                                    className="w-4/5 border-2 border-red-500   rounded p-3 placeholder-gray-400 focus:ring-2 focus:ring-red-600 focus:outline-none"
+                                    value={exercicio.series}
+                                    onChange={atualizarEstado}
+                                />
+                            </div>
+
+                            <div className="flex flex-col ">
+                                <label htmlFor="repeticoes" className="text-lg font-semibold " >Repetições:</label>
+                                <input
+                                    type="number"
+                                    placeholder="Quantidade de repeticoes"
+                                    name="repeticoes"
+                                    className="w-5/5 border-2 border-red-500   rounded p-3 placeholder-gray-400 focus:ring-2 focus:ring-red-600 focus:outline-none"
+                                    value={exercicio.repeticoes}
+                                    onChange={atualizarEstado}
+                                />
+                            </div>
+
+                        </div>
+                        <div className="flex">
+                        <button
+                            className="rounded-lg bg-red-500 hover:bg-red-600 text-white  text-lg font-semibold py-3  mt-6 mx-auto w-1/2 transition duration-300 transform hover:scale-105"
+                            type="submit">
+                            Adicionar
+                        </button>
+
+                        <button className="flex rounded-lg justify-center bg-gray-400 hover:bg-gray-300 text-red-700  text-lg font-semibold py-3  mt-6 mx-auto w-2/5 transition duration-300 transform hover:scale-105">
+                            <Link to='/exercicios'>Cancelar</Link>
+                            
+                        </button>
+                        </div>
+                    </form>
+                </div>
             </div>
- 
-            <button
-              className="rounded-lg bg-red-500 hover:bg-red-600 text-white text-lg font-semibold py-3 mt-6 mx-auto w-1/2 transition duration-300 transform hover:scale-105"
-              type="submit">
-              Atualizar
-            </button>
-          </form>
         </div>
-      </div>
     );
-  }
- 
-  export default FormExercicios;
+}
+
+export default FormExercicios;

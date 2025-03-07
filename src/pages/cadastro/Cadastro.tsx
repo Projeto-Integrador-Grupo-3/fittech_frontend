@@ -35,7 +35,7 @@ function Cadastro() {
       navigate('/login')
     }
   
-    function atualizarEstado(e: ChangeEvent<HTMLInputElement>){
+    function atualizarEstado(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>){
       setUsuario({
         ...usuario,
         [e.target.name]: e.target.value
@@ -116,15 +116,17 @@ function Cadastro() {
             </div>
             <div className="flex flex-col w-full">
               <label htmlFor="tipo">Tipo</label>
-              <input
-                type="text"
-                id="tipo"
-                name="tipo"
-                placeholder="Instrutor ou Aluno"
-                className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                value = {usuario.tipo}
-               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-              />
+              <select
+              name="tipo"
+              id="tipo"
+              className="border-2 border-corVerdeEscuro rounded-lg p-2"
+              value={usuario.tipo}
+              onChange={(e: ChangeEvent<HTMLSelectElement>) => atualizarEstado(e)}
+            >
+              <option value="">Selecione um tipo</option>
+              <option value="instrutor">Instrutor</option>
+              <option value="aluno">Aluno</option>
+            </select>
             </div>
             <div className="flex flex-col w-full">
               <label htmlFor="peso">Peso</label>

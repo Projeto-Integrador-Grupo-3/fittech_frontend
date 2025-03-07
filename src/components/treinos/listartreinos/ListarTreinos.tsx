@@ -19,6 +19,9 @@ function ListarTreinos() {
         try {
             await buscar('/treino', setTreinos, {
                 headers: { Authorization: token }
+
+
+                
             });
         } catch (error: any) {
             if (error.toString().includes('403')) {
@@ -69,12 +72,16 @@ function ListarTreinos() {
                 
             <div className="flex justify-around items-center w-5/6 mx-auto pt-10">
                 <h1 className="text-2xl font-bold mt-40 text-white">Lista de Treinos</h1>
+
+                {usuario.tipo !== "aluno" && (
                 <button
-                    onClick={cadastrarTreinos}
-                    className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-colors"
-                >
-                    <Link to='/cadastrartreino'>Cadastrar Treino</Link>
-                </button>
+                onClick={cadastrarTreinos}
+                className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-colors"
+            >
+                <Link to='/cadastrartreino'>Cadastrar Treino</Link>
+            </button>
+            )}
+                
             </div>
 
             <div className="flex justify-center items-center w-full my-4">

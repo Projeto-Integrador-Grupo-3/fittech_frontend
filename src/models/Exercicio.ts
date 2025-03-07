@@ -2,9 +2,9 @@ import Treino from "./Treino";
 import Usuario from "./Usuario";
 
 export default interface Exercicio {
-    id: number;
+    id: any;
     nome: string;
-    grupomuscular: string;
+    grupoMuscular: string;
     repeticoes: number;
     series: number;
     usuario?: Usuario | null;
