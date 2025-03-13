@@ -4,14 +4,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import Treino from "../../../models/Treino";
 import { AuthContext } from "../../../context/AuthContext";
 import { atualizar, buscar, cadastrar } from "../../../service/Service";
-import Exercicio from "../../../models/Exercicio";
+
 
 function FormTreinos() {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [treinos, setTreinos] = useState<Treino[]>([]);
     const [treino, setTreino] = useState<Treino>({ id: undefined, treino: '', descricao: '' });
-    const [exercicio, setExercicio] = useState<Exercicio>({} as Exercicio);
     const { id } = useParams<{ id: undefined }>();
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
@@ -101,11 +100,13 @@ function FormTreinos() {
         retornar();
     }
 
+
+
     return (
 
         <div className="relative w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://img.freepik.com/fotos-premium/uma-academia-com-luzes-vermelhas-e-uma-parede-preta-que-diz-ginasio-nela_876956-1215.jpg')` }}>
             {/* Overlay to dim the image */}
-            
+
 
             <div className="flex items-center justify-center min-h-screen text-white" >
                 <div className="bg-gray-100 text-black w-96 rounded-lg shadow-lg p-6 my-8">

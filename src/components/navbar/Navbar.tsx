@@ -54,6 +54,7 @@ function Navbar() {
                         className="bg-red-500 text-[#F5F5F5] hover:text-[#000000] px-3 py-2 rounded-md text-sm font-medium"
                       >Calcule seu IMC</button>
 
+                      <Link to='/atribuirtreino' className="text-[#F5F5F5] hover:text-[#FF0000] px-3 py-2 rounded-md text-sm font-semibold">Atribuir Treino</Link>
                       <Link to='/treinos' className="text-[#F5F5F5] hover:text-[#FF0000] px-3 py-2 rounded-md text-sm font-semibold">Treinos</Link>
                       <Link to='/exercicios' className="text-[#F5F5F5] hover:text-[#FF0000] px-3 py-2 rounded-md text-sm font-semibold">Exercícios</Link>
                       <Link to='/sobre' className="text-[#F5F5F5] hover:text-[#ff0000] px-3 py-2 rounded-md text-sm font-semibold">Sobre</Link>
@@ -61,9 +62,9 @@ function Navbar() {
                     </>
                   )}
 
-                  {usuario.tipo == 'aluno' && ( 
+                  {usuario.tipo == 'aluno' && (
                     <>
-                    <button
+                      <button
                         onClick={() => setIsModalOpen(true)}
                         className="bg-red-500 text-[#F5F5F5] hover:text-[#000000] px-3 py-2 rounded-md text-sm font-medium"
                       >Calcule seu IMC</button>

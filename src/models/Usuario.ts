@@ -1,4 +1,4 @@
-import Exercicio from "./Exercicio";
+import Treino from "./Treino";
 
 export default interface Usuario {
     id: any;
@@ -10,5 +10,5 @@ export default interface Usuario {
     peso: number;
     altura: number;
     imc?: number;
-    exercicio?: Exercicio ;
+    treino?: Treino ;
 }

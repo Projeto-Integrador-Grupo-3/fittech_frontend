@@ -1,3 +1,5 @@
+import Treino from "./Treino";
+
 export default interface UsuarioLogin {
     id: number;
     nome: string;
@@ -6,5 +8,7 @@ export default interface UsuarioLogin {
     tipo: string;
     peso: number;
     altura:number;
+    imc?: number;
+    treino?: Treino ;
     token: string;
 }
