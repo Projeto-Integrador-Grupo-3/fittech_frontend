@@ -17,9 +17,9 @@ function FormExercicios() {
         grupoMuscular: '',
         series: 0,
         repeticoes: 0,
-        treinoId: ''
+        treino: undefined,
     });
-    
+
     const [treinos, setTreinos] = useState<Treino[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -62,10 +62,19 @@ function FormExercicios() {
     }, [id]);
 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
-        setExercicio({
-            ...exercicio,
-            [e.target.name]: e.target.value
-        });
+        const { name, value } = e.target;
+        if (name === "treino") {
+            const treinoSelecionado = treinos.find(treino => treino.id === Number(value));
+            setExercicio({
+                ...exercicio,
+                treino: treinoSelecionado
+            });
+        } else {
+            setExercicio({
+                ...exercicio,
+                [name]: value
+            });
+        }
     }
 
     async function gerarNovoExercicio(e: ChangeEvent<HTMLFormElement>) {
@@ -96,36 +105,40 @@ function FormExercicios() {
     }
 
     return (
-<div className="w-full h-full bg-black flex items-center justify-center py-12">
-    <div className="bg-gray-900 w-[400px] sm:w-[450px] md:w-[500px] lg:w-[500px] rounded-lg shadow-lg p-6 border border-red-600">
-        <h1 className="text-2xl text-center font-bold text-white mb-4">Adicionar Exercício</h1>
-        <form className="w-full flex flex-col gap-3" onSubmit={gerarNovoExercicio}>
-            <label className="text-white text-sm">Nome</label>
-            <input type="text" name="nome" className="w-full border border-red-500 rounded p-2 bg-gray-800 text-white text-sm" value={exercicio.nome} onChange={atualizarEstado} />
-            
-            <label className="text-white text-sm">Grupo Muscular</label>
-            <input type="text" name="grupoMuscular" className="w-full border border-red-500 rounded p-2 bg-gray-800 text-white text-sm" value={exercicio.grupoMuscular} onChange={atualizarEstado} />
-            
-            <label className="text-white text-sm">Séries</label>
-            <input type="number" name="series" className="w-full border border-red-500 rounded p-2 bg-gray-800 text-white text-sm" value={exercicio.series} onChange={atualizarEstado} />
-            
-            <label className="text-white text-sm">Repetições</label>
-            <input type="number" name="repeticoes" className="w-full border border-red-500 rounded p-2 bg-gray-800 text-white text-sm" value={exercicio.repeticoes} onChange={atualizarEstado} />
-            
-            <label className="text-white text-sm">Treino</label>
-            <select name="treinoId" className="w-full border border-red-500 rounded p-2 bg-gray-800 text-white text-sm" value={exercicio.treinoId} onChange={atualizarEstado}>
-                <option value="">Selecione</option>
-                {treinos.map((treino) => (
-                    <option key={treino.id} value={treino.id}>{treino.treino}</option>
-                ))}
-            </select>
-            
-            <button className="rounded bg-red-500 hover:bg-red-600 text-white text-sm font-semibold py-2 mt-3 transition duration-300 transform hover:scale-105" type="submit">Adicionar</button>
-            <Link to='/exercicios' className="text-center rounded bg-gray-500 hover:bg-gray-600 text-white text-sm font-semibold py-2 mt-3 transition duration-300 transform hover:scale-105">Cancelar</Link>
-        </form>
-    </div>
-</div>
+        <div className="w-full h-full bg-black flex items-center justify-center py-12">
+            <div className="bg-gray-900 w-[400px] sm:w-[450px] md:w-[500px] lg:w-[500px] rounded-lg shadow-lg p-6 border border-red-600">
+                <h1 className="text-2xl text-center font-bold text-white mb-4">Adicionar Exercício</h1>
+                <form className="w-full flex flex-col gap-3" onSubmit={gerarNovoExercicio}>
+                    <label className="text-white text-sm">Nome</label>
+                    <input type="text" name="nome" className="w-full border border-red-500 rounded p-2 bg-gray-800 text-white text-sm" value={exercicio.nome} onChange={atualizarEstado} />
 
+                    <label className="text-white text-sm">Grupo Muscular</label>
+                    <input type="text" name="grupoMuscular" className="w-full border border-red-500 rounded p-2 bg-gray-800 text-white text-sm" value={exercicio.grupoMuscular} onChange={atualizarEstado} />
+
+                    <label className="text-white text-sm">Séries</label>
+                    <input type="number" name="series" className="w-full border border-red-500 rounded p-2 bg-gray-800 text-white text-sm" value={exercicio.series} onChange={atualizarEstado} />
+
+                    <label className="text-white text-sm">Repetições</label>
+                    <input type="number" name="repeticoes" className="w-full border border-red-500 rounded p-2 bg-gray-800 text-white text-sm" value={exercicio.repeticoes} onChange={atualizarEstado} />
+
+                    <label className="text-white text-sm">Treino</label>
+                    <select
+                        name="treino"
+                        className="w-full border border-red-500 rounded p-2 bg-gray-800 text-white text-sm"
+                        value={exercicio.treino ? exercicio.treino.id : ""}
+                        onChange={atualizarEstado}
+                    >
+                        <option value="">Selecione</option>
+                        {treinos.map((treino) => (
+                            <option key={treino.id} value={treino.id}>{treino.treino}</option>
+                        ))}
+                    </select>
+
+                    <button className="rounded bg-red-500 hover:bg-red-600 text-white text-sm font-semibold py-2 mt-3 transition duration-300 transform hover:scale-105" type="submit">Adicionar</button>
+                    <Link to='/exercicios' className="text-center rounded bg-gray-500 hover:bg-gray-600 text-white text-sm font-semibold py-2 mt-3 transition duration-300 transform hover:scale-105">Cancelar</Link>
+                </form>
+            </div>
+        </div>
     );
 }
 

@@ -9,9 +9,12 @@ function FormTreinos() {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [treinos, setTreinos] = useState<Treino[]>([]);
-    const [treino, setTreino] = useState<Treino>({ id: undefined, treino: '', descricao: '' });
+    const [treino, setTreino] = useState<Treino>({ id: undefined, treino: '', descricao: '', usuario: null });
     const { id } = useParams<{ id: undefined }>();
     const { usuario, handleLogout } = useContext(AuthContext);
+    const [usuarios, setUsuarios] = useState<any[]>([]);
+    const [usuarioSelecionado, setUsuarioSelecionado] = useState<any>(null);
+
     const token = usuario.token;
 
     async function buscarTreinoPorId(id: String) {
@@ -37,6 +40,21 @@ function FormTreinos() {
             }
         }
     }
+
+    useEffect(() => {
+        async function buscarUsuarios() {
+            try {
+                await buscar("/usuarios", setUsuarios, {
+                    headers: { Authorization: token },
+                });
+            } catch (error: any) {
+                if (error.toString().includes("403")) {
+                    handleLogout();
+                }
+            }
+        }
+        buscarUsuarios();
+    }, [token, handleLogout]);
 
     useEffect(() => {
         if (token === '') {
@@ -67,31 +85,25 @@ function FormTreinos() {
         e.preventDefault();
         setIsLoading(true);
 
-        if (id !== undefined) {
-            try {
-                await atualizar(`/treino`, treino, setTreino, {
+        const treinoComUsuario = { ...treino, usuario: usuarioSelecionado };
+
+        try {
+            if (id !== undefined) {
+                await atualizar(`/treino`, treinoComUsuario, setTreino, {
                     headers: { Authorization: token },
                 });
                 alert('Treino atualizado com sucesso');
-            } catch (error: any) {
-                if (error.toString().includes('403')) {
-                    handleLogout();
-                } else {
-                    alert('Erro ao atualizar o treino');
-                }
-            }
-        } else {
-            try {
-                await cadastrar(`/treino`, treino, setTreino, {
+            } else {
+                await cadastrar(`/treino`, treinoComUsuario, setTreino, {
                     headers: { Authorization: token },
                 });
                 alert('Treino cadastrado com sucesso');
-            } catch (error: any) {
-                if (error.toString().includes('403')) {
-                    handleLogout();
-                } else {
-                    alert('Erro ao cadastrar o treino');
-                }
+            }
+        } catch (error: any) {
+            if (error.toString().includes('403')) {
+                handleLogout();
+            } else {
+                alert('Erro ao processar o treino');
             }
         }
 
@@ -126,6 +138,7 @@ function FormTreinos() {
                                 value={treino.descricao}
                                 onChange={atualizarEstado}
                             />
+                            
                         </div>
                         <div className="flex justify-between gap-2">
                             <button

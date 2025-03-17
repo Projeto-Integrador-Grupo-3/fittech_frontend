@@ -43,7 +43,7 @@ function ListarTreinos() {
                 "url('https://img.freepik.com/fotos-premium/uma-academia-com-luzes-vermelhas-e-uma-parede-preta-que-diz-ginasio-nela_876956-1215.jpg')",
         }}>
             {treinos.length === 0 && (
-                <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50">
+                <div className=" inset-0 flex justify-center items-center bg-black bg-opacity-50">
                     <ThreeDots
                         height="80"
                         width="80"
