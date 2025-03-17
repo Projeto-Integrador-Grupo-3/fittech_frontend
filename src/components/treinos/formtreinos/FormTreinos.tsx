@@ -5,7 +5,6 @@ import Treino from "../../../models/Treino";
 import { AuthContext } from "../../../context/AuthContext";
 import { atualizar, buscar, cadastrar } from "../../../service/Service";
 
-
 function FormTreinos() {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -100,16 +99,10 @@ function FormTreinos() {
         retornar();
     }
 
-
-
     return (
-
         <div className="relative w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('https://img.freepik.com/fotos-premium/uma-academia-com-luzes-vermelhas-e-uma-parede-preta-que-diz-ginasio-nela_876956-1215.jpg')` }}>
-            {/* Overlay to dim the image */}
-
-
-            <div className="flex items-center justify-center min-h-screen text-white" >
-                <div className="bg-gray-100 text-black w-96 rounded-lg shadow-lg p-6 my-8">
+            <div className="flex items-center justify-center min-h-screen text-white">
+                <div className="bg-gray-900 text-white w-96 rounded-lg shadow-lg p-6 my-8 border border-red-600">
                     <h1 className="text-2xl font-bold text-center mb-4">
                         {id === undefined ? 'Cadastrar Treino' : 'Editar Treino'}
                     </h1>
@@ -120,7 +113,7 @@ function FormTreinos() {
                                 type="text"
                                 placeholder="Nome do treino"
                                 name="treino"
-                                className="border border-gray-400 rounded p-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                className="border border-red-500 rounded p-2 bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
                                 value={treino.treino}
                                 onChange={atualizarEstado}
                             />
@@ -129,21 +122,30 @@ function FormTreinos() {
                                 type="text"
                                 placeholder="Descrição"
                                 name="descricao"
-                                className="border border-gray-400 rounded p-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                className="border border-red-500 rounded p-2 bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
                                 value={treino.descricao}
                                 onChange={atualizarEstado}
                             />
                         </div>
-                        <button
-                            className="rounded bg-red-600 text-white py-2 hover:bg-red-700 transition flex justify-center"
-                            type="submit"
-                        >
-                            {isLoading ? (
-                                <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="24" visible={true} />
-                            ) : (
-                                <span>{id === undefined ? 'Cadastrar' : 'Atualizar'}</span>
-                            )}
-                        </button>
+                        <div className="flex justify-between gap-2">
+                            <button
+                                className="rounded bg-red-500 text-white py-2 hover:bg-red-600 transition flex justify-center w-full"
+                                type="submit"
+                            >
+                                {isLoading ? (
+                                    <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="24" visible={true} />
+                                ) : (
+                                    <span>{id === undefined ? 'Cadastrar' : 'Atualizar'}</span>
+                                )}
+                            </button>
+                            <button
+                                className="rounded bg-gray-500 text-white py-2 hover:bg-gray-600 transition flex justify-center w-full"
+                                type="button"
+                                onClick={retornar}
+                            >
+                                Cancelar
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
