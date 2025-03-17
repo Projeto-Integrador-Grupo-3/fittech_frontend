@@ -17,6 +17,7 @@ import DeletarTreino from './components/treinos/deletartreinos/DeletarTreinos';
 import FormExercicios from './components/exercicios/formexercicios/FormExercicios';
 import DeletarExercicio from './components/exercicios/deletarexercicios/DeletarExercicios';
 import AtribuirTreino from './pages/atribuirtreino/AtribuirTreino';
+import ExibirTreinos from './components/treinos/exibirtreinos/ExibirTreinos';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
               <Route path="/treinos" element={<ListarTreinos />} />
               <Route path="/atribuirtreino" element={<AtribuirTreino />} />
               <Route path="/cadastrartreino" element={<FormTreinos/>} />
+              <Route path="/exibirtreino/:id" element={<ExibirTreinos />} />
               <Route path="/editartreino/:id" element={<FormTreinos/>} />
               <Route path="/deletartreino/:id" element={<DeletarTreino/>} />
               <Route path="/exercicios" element={<ListarExercicios/>} />

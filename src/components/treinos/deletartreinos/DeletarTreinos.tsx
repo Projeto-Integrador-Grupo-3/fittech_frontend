@@ -115,7 +115,7 @@ function DeletarTreino() {
                 </div>
             </div>
         </div>
-    );
+    )
 
 }
 
