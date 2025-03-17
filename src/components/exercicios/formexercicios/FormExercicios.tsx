@@ -17,7 +17,7 @@ function FormExercicios() {
         grupoMuscular: '',
         series: 0,
         repeticoes: 0,
-        treinoId: ''
+        // treino:  '' ||null,
     });
     
     const [treinos, setTreinos] = useState<Treino[]>([]);

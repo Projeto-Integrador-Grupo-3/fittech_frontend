@@ -26,6 +26,23 @@ export const atualizar = async (url: string, dados: Object, setDados: Function, 
     const resposta = await api.put(url, dados, header)
     setDados(resposta.data)
 }
+export const atualizarTreino = async (
+    idUsuario: number,
+    idTreino: number,
+    header: Object
+) => {
+    try {
+        const resposta = await api.put(
+            `/usuarios/${idUsuario}/atualizar-treino`,
+            { treinoId: idTreino },
+            header
+        );
+        return resposta;
+    } catch (erro) {
+        console.error("Erro ao atualizar treino:", erro);
+        throw erro;
+    }
+};
 export const deletar = async (url: string, header: Object) => {
     await api.delete(url, header)
 }
