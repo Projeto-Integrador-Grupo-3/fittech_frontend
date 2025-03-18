@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Treino from "../../models/Treino";
-import { buscar, atualizar, atualizarTreino } from "../../service/Service";
+import { buscar, atualizarTreino } from "../../service/Service";
 import { AuthContext } from "../../context/AuthContext";
 
 interface Usuario {
