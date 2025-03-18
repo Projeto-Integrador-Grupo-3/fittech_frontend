@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Treino from "../../../models/Treino";
 import { AuthContext } from '../../../context/AuthContext';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 
 interface CardTreinoProps {
@@ -10,9 +10,18 @@ interface CardTreinoProps {
 
 
 function CardTreino({ treino }: CardTreinoProps) {
+
+    const navigate = useNavigate()
+
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
 
+useEffect(() => {
+        if (token === '') {
+            alert('Você precisa estar logado!')
+            navigate('/treinos')
+        }
+    }, [token])
 
     return (
         <div className='flex grid-cols-3 items-center justify-between border border-gray-700 rounded-lg shadow-md p-2 bg-black w-4/6'>
