@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+  background-color: rgb(24, 27, 32);
+}
+/* 📌 Fontes personalizadas */
 .instrument-sans-unique {
   font-family: "Instrument Sans", serif;
   font-optical-sizing: auto;
@@ -13,14 +17,13 @@
     "wdth" 100;
 }
 
-
 .anton-regular {
   font-family: "Anton", serif;
   font-weight: 400;
   font-style: normal;
 }
 
-h1,h2,h3,span {
+h1, h2, h3, span {
   font-family: 'Anton', sans-serif;
   font-weight: normal;
 }
@@ -28,3 +31,23 @@ h1,h2,h3,span {
 body {
   font-family: 'Open Sans', sans-serif;
 }
+
+/* @layer base {
+  body {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl;
+  }
+
+  h1 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+}
+
+@layer components {
+  .responsive-container {
+    @apply max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8;
+  }
+} */

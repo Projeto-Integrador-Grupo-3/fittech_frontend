@@ -6,6 +6,6 @@ export default interface Treino {
     id: any;
     treino: string;
     descricao: string;
-    exercicio?: Exercicio[] | null;
+    exercicios?: Exercicio[] | null;
 
 }

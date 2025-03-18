@@ -88,15 +88,15 @@ function DeletarTreino() {
     }
 
     return (
-        <div className="flex items-center justify-center fixed inset-0 bg-gray-900 bg-opacity-50 z-50">
-            <div className="w-full max-w-md bg-gradient-to-r from-black to-gray-800 rounded-lg shadow-lg p-6">
+        <div className="flex items-center justify-center fixed inset-0  bg-cover bg-center z-50" style={{ backgroundImage: `url('https://img.freepik.com/fotos-premium/uma-academia-com-luzes-vermelhas-e-uma-parede-preta-que-diz-ginasio-nela_876956-1215.jpg')` }}>
+            <div className="w-full max-w-md bg-gradient-to-r bg-slate-950 rounded-lg shadow-lg p-6">
                 <h1 className="text-2xl text-center font-semibold text-white mb-4">Deletar Treino</h1>
 
                 <p className="text-sm text-center text-white opacity-80 mb-5">
                     Você tem certeza de que deseja apagar o treino? Esta ação não pode ser desfeita.
                 </p>
 
-                <div className="border-l-4 border-yellow-500 pl-4 py-3 mb-6 rounded-lg bg-gray-700">
+                <div className="border-l-4 border-red-500 pl-4 py-3 mb-6 rounded-lg bg-slate-950">
                     <p className="text-base font-semibold text-white mb-1">{treino.treino}</p>
                     <p className="text-gray-300 text-sm">{treino.descricao}</p>
                 </div>

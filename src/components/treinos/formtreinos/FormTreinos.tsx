@@ -141,6 +141,13 @@ function FormTreinos() {
                             
                         </div>
                         <div className="flex justify-between gap-2">
+                        <button
+                                className="rounded bg-gray-500 text-white py-2 hover:bg-gray-600 transition flex justify-center w-full"
+                                type="button"
+                                onClick={retornar}
+                            >
+                                Cancelar
+                            </button>
                             <button
                                 className="rounded bg-red-500 text-white py-2 hover:bg-red-600 transition flex justify-center w-full"
                                 type="submit"
@@ -150,13 +157,6 @@ function FormTreinos() {
                                 ) : (
                                     <span>{id === undefined ? 'Cadastrar' : 'Atualizar'}</span>
                                 )}
-                            </button>
-                            <button
-                                className="rounded bg-gray-500 text-white py-2 hover:bg-gray-600 transition flex justify-center w-full"
-                                type="button"
-                                onClick={retornar}
-                            >
-                                Cancelar
                             </button>
                         </div>
                     </form>

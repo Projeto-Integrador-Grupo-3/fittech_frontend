@@ -50,6 +50,8 @@ function CardTreino({ treino }: CardTreinoProps) {
             </div>
             )}
 
+            
+
 
         </div>
     );
