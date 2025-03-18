@@ -17,9 +17,9 @@ function FormExercicios() {
         grupoMuscular: '',
         series: 0,
         repeticoes: 0,
-        // treino:  '' ||null,
+        treino: undefined,
     });
-    
+
     const [treinos, setTreinos] = useState<Treino[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -82,13 +82,18 @@ function FormExercicios() {
         setIsLoading(true);
 
         try {
+            const exercicioComTreino = {
+                ...exercicio,
+                treino: exercicio.treino ? { id: exercicio.treino.id } : null
+            };
+
             if (id !== undefined) {
-                await atualizar(`/exercicio`, exercicio, setExercicio, {
+                await atualizar(`/exercicio`, exercicioComTreino, setExercicio, {
                     headers: { 'Authorization': token }
                 });
                 alert('O Exercício foi atualizado com sucesso!');
             } else {
-                await cadastrar(`/exercicio`, exercicio, setExercicio, {
+                await cadastrar(`/exercicio`, exercicioComTreino, setExercicio, {
                     headers: { 'Authorization': token }
                 });
                 alert('O Exercício foi cadastrado com sucesso!');
@@ -143,3 +148,4 @@ function FormExercicios() {
 }
 
 export default FormExercicios;
+
