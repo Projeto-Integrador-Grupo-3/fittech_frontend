@@ -46,7 +46,7 @@ function Navbar() {
             </div>
 
             {/* Menu de navegação */}
-            <div className={`lg:flex ${isMenuOpen ? "block" : "hidden"} lg:block lg:flex-row ml-auto`}>
+            <div className={`lg:flex ${isMenuOpen ? "block" : "hidden"} lg:block lg:flex-row ml-auto `}>
               <div className="flex flex-col lg:flex-row ml-10 lg:space-x-4">
                 {/* Menu para quando não está logado */}
                 {usuario.token === '' ? (
