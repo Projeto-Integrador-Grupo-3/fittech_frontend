@@ -66,8 +66,6 @@ function ListarExercicios() {
           </Link>
         )}
       </div>
-
-      {/* Grid de Exercícios */}
       <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6 bg-gray-900 rounded-xl shadow-lg border-2 border-red-600">
         {exercicios.map((exercicio) => (
           <CardExercicio key={exercicio.id} exercicio={exercicio} />
