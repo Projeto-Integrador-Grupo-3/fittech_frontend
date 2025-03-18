@@ -8,12 +8,12 @@ import { atualizar, buscar, cadastrar } from "../../../service/Service";
 function FormTreinos() {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [treinos, setTreinos] = useState<Treino[]>([]);
+    const [, setTreinos] = useState<Treino[]>([]);
     const [treino, setTreino] = useState<Treino>({ id: undefined, treino: '', descricao: '', usuario: null });
     const { id } = useParams<{ id: undefined }>();
     const { usuario, handleLogout } = useContext(AuthContext);
-    const [usuarios, setUsuarios] = useState<any[]>([]);
-    const [usuarioSelecionado, setUsuarioSelecionado] = useState<any>(null);
+    const [, setUsuarios] = useState<any[]>([]);
+    const [usuarioSelecionado, ] = useState<any>(null);
 
     const token = usuario.token;
 

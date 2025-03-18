@@ -1,15 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Exercicio from '../../../models/Exercicio';
 import { AuthContext } from '../../../context/AuthContext';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 interface CardExercicioProps {
     exercicio: Exercicio;
 }
 
 function CardExercicio({ exercicio }: CardExercicioProps) {
+
+    const navigate = useNavigate()
     const { usuario } = useContext(AuthContext);
     const token = usuario.token;
+
+    useEffect(() => {
+            if (token === '') {
+                alert('Você precisa estar logado!');
+                navigate('/');
+            }
+        }, [token]);
 
     return (
         <div className='flex flex-col items-start justify-between gap-4 rounded-lg p-4 bg-gray-800 w-full shadow-md transition-transform transform hover:scale-105 hover:shadow-lg'>

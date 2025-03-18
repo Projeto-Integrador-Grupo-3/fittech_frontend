@@ -1,4 +1,4 @@
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Treino from "../../../models/Treino";
 import { AuthContext } from '../../../context/AuthContext';
 import { useContext, useEffect } from 'react';
@@ -19,7 +19,8 @@ function CardTreino({ treino }: CardTreinoProps) {
 useEffect(() => {
         if (token === '') {
             alert('Você precisa estar logado!')
-            navigate('/treinos')
+            handleLogout()
+            navigate('/')
         }
     }, [token])
 

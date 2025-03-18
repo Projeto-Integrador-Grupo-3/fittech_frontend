@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
-import { buscar, cadastrar } from "../../../service/Service";
+import { buscar } from "../../../service/Service";
 import Exercicio from "../../../models/Exercicio";
 import CardExercicio from "../cardexercicios/CardExercicios";
 
@@ -25,17 +25,6 @@ function ListarExercicios() {
     }
   }
 
-  async function cadastrarExercicio() {
-    try {
-      await cadastrar('/exercicio', exercicios, setExercicio, {
-        headers: { Authorization: token }
-      });
-    } catch (error: any) {
-      if (error.toString().includes('403')) {
-        handleLogout();
-      }
-    }
-  }
 
   useEffect(() => {
     if (token === '') {

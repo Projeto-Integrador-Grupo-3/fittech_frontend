@@ -4,6 +4,7 @@ import { AuthContext } from "../../../context/AuthContext";
 import Exercicio from "../../../models/Exercicio";
 import Treino from "../../../models/Treino";
 import { atualizar, buscar, cadastrar } from "../../../service/Service";
+import { RotatingLines } from "react-loader-spinner";
 
 function FormExercicios() {
     const navigate = useNavigate();
@@ -139,7 +140,18 @@ function FormExercicios() {
                         ))}
                     </select>
 
-                    <button className="rounded bg-red-500 hover:bg-red-600 text-white text-sm font-semibold py-2 mt-3 transition duration-300 transform hover:scale-105" type="submit">Adicionar</button>
+                    <button className="rounded bg-red-500 hover:bg-red-600 text-white text-sm font-semibold py-2 mt-3 transition duration-300 transform hover:scale-105" type="submit"
+                    >
+                       {isLoading ? <RotatingLines
+                                             strokeColor="white"
+                                             strokeWidth="5"
+                                             animationDuration="0.75"
+                                             width="24"
+                                             visible={true}
+                                           /> :
+                                             <span>Adicionar</span>
+                                           }
+                    </button>
                     <Link to='/exercicios' className="text-center rounded bg-gray-500 hover:bg-gray-600 text-white text-sm font-semibold py-2 mt-3 transition duration-300 transform hover:scale-105">Cancelar</Link>
                 </form>
             </div>

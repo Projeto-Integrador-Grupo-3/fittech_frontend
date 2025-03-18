@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { AuthContext } from "../../../context/AuthContext"
 import { buscar, deletar } from "../../../service/Service"
 import Treino from "../../../models/Treino"
+import { RotatingLines } from "react-loader-spinner"
 
 
 
@@ -21,8 +22,8 @@ function DeletarTreino() {
     const { id } = useParams<{ id: string }>()
 
 
-     const { usuario, handleLogout } = useContext(AuthContext);
-        const token = usuario.token;
+    const { usuario, handleLogout } = useContext(AuthContext);
+    const token = usuario.token;
 
 
     async function buscarPorId(id: string) {
@@ -110,7 +111,15 @@ function DeletarTreino() {
                     <button
                         className="py-2 px-5 text-sm font-semibold text-white bg-red-500 hover:bg-red-600 rounded-lg transition duration-300 w-full"
                         onClick={deletarTreino}>
-                        Sim
+                        {isLoading ? <RotatingLines
+                            strokeColor="white"
+                            strokeWidth="5"
+                            animationDuration="0.75"
+                            width="24"
+                            visible={true}
+                        /> :
+                            <span>Sim</span>
+                        }
                     </button>
                 </div>
             </div>
