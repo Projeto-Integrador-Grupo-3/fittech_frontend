@@ -7,38 +7,38 @@ function Sobre() {
     { 
       name: 'Daffne Vieira', 
       role: 'Developer', 
-      image: 'https://ik.imagekit.io/machadofatima/Fitness/WhatsApp_Image_2024-12-17_at_15.53.34.webp',
+      image: 'https://media.licdn.com/dms/image/v2/D4D03AQFDHY5D1g2q6A/profile-displayphoto-shrink_800_800/B4DZVO3V7rHYAc-/0/1740784887252?e=1747872000&v=beta&t=w-yJeSu40aaF1cmmlUvYdN8Qfjhfvqr0567ZQ0XTzQM',
       linkedin: 'https://www.linkedin.com/in/daffne-vieira/'
     },
     { 
       name: 'Tiago Alves', 
       role: 'Developer', 
       image: 'https://ik.imagekit.io/machadofatima/Fitness/Perfil.webp',
-      linkedin: 'https://www.linkedin.com/in/tiago-alves/'
+      linkedin: 'https://www.linkedin.com/in/tiago-salves'
     },
     { 
       name: 'Fátima Machado', 
       role: 'Developer', 
       image: 'https://ik.imagekit.io/machadofatima/Fitness/IMG_2876.webp',
-      linkedin: 'https://www.linkedin.com/in/fatima-machado/'
+      linkedin: 'https://www.linkedin.com/in/machadofatima/'
     },
     { 
       name: 'Kauê Oliveira', 
       role: 'Developer', 
       image: 'https://ik.imagekit.io/machadofatima/Fitness/IMG_2850.webp',
-      linkedin: 'https://www.linkedin.com/in/kaue-oliveira/'
+      linkedin: 'https://www.linkedin.com/in/kaue-de-oliveira-667856155/'
     },
     { 
       name: 'Thalita Alves', 
       role: 'Product Owner', 
       image: 'https://ik.imagekit.io/machadofatima/Fitness/IMG-20241004-WA0019.webp',
-      linkedin: 'https://www.linkedin.com/in/thalita-alves/'
+      linkedin: 'https://www.linkedin.com/in/thalita-alves-s/'
     },
     { 
       name: 'João Vitor Bispo', 
       role: 'Quality Assurance', 
       image: 'https://ik.imagekit.io/machadofatima/Fitness/IMG_2977_2.webp',
-      linkedin: 'https://www.linkedin.com/in/joao-vitor-bispo/'
+      linkedin: 'https://www.linkedin.com/in/jo%C3%A3o-vitor-bispo-836767174/'
     },
   ];
 
