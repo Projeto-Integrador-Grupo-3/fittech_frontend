@@ -17,6 +17,7 @@ function AtribuirTreino() {
     const [buscaNome, setBuscaNome] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
 
+
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
 

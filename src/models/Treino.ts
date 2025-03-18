@@ -1,4 +1,5 @@
 import Exercicio from "./Exercicio";
+import Usuario from "./Usuario";
 
 export default interface Treino {
     usuario: any;
@@ -6,4 +7,5 @@ export default interface Treino {
     treino: string;
     descricao: string;
     exercicio?: Exercicio[] | null;
+
 }
