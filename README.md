@@ -1,4 +1,4 @@
-# FitTech
+# FitTech >>> https://fittech-frontend.netlify.app/
 
 ## Descrição
 O **FitTech** é um projeto que visa oferecer uma plataforma inovadora para acompanhamento de atividades físicas e saúde, foi desenvolvido como parte do Projeto Integrador do Grupo 3, durante o Bootcamp de Pessoa Desenvolvedora Fullstack da Generation Brasil.
